@@ -39,15 +39,7 @@ const Registration = () => {
     // <Navigate to="/billingList" replace={true} />;
   };
 
-  const handleUserName = (e) => {
-    setUsername(e.target.value);
-  };
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
+
   // style=====
   const heroText = {
     textAlign: "center",
@@ -68,11 +60,8 @@ const Registration = () => {
             sx={{ ...input }}
             variant="outlined"
             {...register("username", { required: true })}
-            value={username}
-            onChange={handleUserName}
             fullWidth
             label="Your Name"
-            autoFocus
           />
           <br />
           <TextField
@@ -80,8 +69,6 @@ const Registration = () => {
             variant="outlined"
             sx={{ ...input }}
             {...register("username", { required: true })}
-            value={email}
-            onChange={handleEmail}
             fullWidth
             label="Your Email "
             autoFocus
@@ -92,8 +79,6 @@ const Registration = () => {
             variant="outlined"
             sx={{ ...input }}
             {...register("username", { required: true })}
-            value={password}
-            onChange={handlePassword}
             fullWidth
             label="Your Password"
             autoFocus
