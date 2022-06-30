@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Registration from "./Components/Authentication/Registration";
+import BillingList from "./Components/Billing/BillingList";
+import AddBilling from "./Components/Billing/AddBilling";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Registration />}></Route>
+          <Route path="/billingList" element={<BillingList />}></Route>
+          <Route path="/addBill" element={<AddBilling />}></Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <Routes>
+        <Route exact path="/" element={<Registration />} />
+        <Route exact path="/billingList" element={<BillingList />} />
+      </Routes> */}
+      {/* <Registration />
+      <BillingList /> */}
     </div>
   );
 }
