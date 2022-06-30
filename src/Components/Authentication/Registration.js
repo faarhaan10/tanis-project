@@ -2,7 +2,7 @@ import { TextField, Typography, Container } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import BillingList from "../Billing/BillingList";
 
 const Registration = () => {
@@ -17,16 +17,18 @@ const Registration = () => {
     formState: { errors },
   } = useForm();
 
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
     data.username = username;
     data.email = email;
     data.password = password;
     reset();
     axios
-      .post("http://localhost:5000/api/registration", data)
+      .post("http://localhost:5000/registration", data)
       .then((response) => {
-        response.status === 200 &&
-          alert("Successfully Registered", "Successfully Registered");
+        window.alert("Successfully Registered", "Successfully Registered");
+        navigate('/billingList')
       })
 
       .catch((error) => {
@@ -103,7 +105,6 @@ const Registration = () => {
           <input type="submit" />
         </form>
       </Container>
-      <BillingList />
     </div>
   );
 };
